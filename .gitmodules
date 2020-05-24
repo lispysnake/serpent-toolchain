@@ -1,3 +1,6 @@
 [submodule "external/ldc"]
 	path = external/ldc
 	url = https://github.com/ldc-developers/ldc.git
+[submodule "external/dub"]
+	path = external/dub
+	url = https://github.com/dlang/dub.git
