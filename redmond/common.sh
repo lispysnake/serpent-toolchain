@@ -41,3 +41,17 @@ function fetch_tarball()
     fi
     echo "SHA256SUM verification passed."
 }
+
+function extract_tarball()
+{
+    local pkgFile="${SERPENT_ROOT_DIR}/external/${1}"
+    local url="$(cat ${pkgFile} | cut -d ' ' -f 1)"
+    local tarball=$(basename "${url}")
+    local stageBall="${SERPENT_DOWNLOAD_DIR}/${tarball}"
+
+    local tgtDir="${SERPENT_BUILD_DIR}/${1}"
+    echo "Extracting ${1}"
+    rm -rf "${SERPENT_BUILD_DIR}/{$1}"
+    install -D -d -m 00755 "${SERPENT_BUILD_DIR}/${1}"
+    tar xf "${stageBall}" --strip-components=1 -C  "${tgtDir}"
+}
