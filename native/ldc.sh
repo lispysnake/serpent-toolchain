@@ -18,7 +18,7 @@ clean_external "ldc"
 
 echo "Bootstrapping LDC"
 pushd "${LDC_BOOTSTRAP_DIR}"
-cmake -GNinja "${LDC_ROOT_DIR}" \
+cmake -G "Unix Makefiles" "${LDC_ROOT_DIR}" \
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=OFF \
     -DD_COMPILER_ID="ldc2" \
@@ -26,21 +26,22 @@ cmake -GNinja "${LDC_ROOT_DIR}" \
     -DLDC_DYNAMIC_COMPILE=OFF \
     -DLDC_WITH_LLD=OFF
 
-ninja -j${SERPENT_BUILD_JOBS}
-ninja -j${SERPENT_BUILD_JOBS} install
+make -j${SERPENT_BUILD_JOBS}
+make -j${SERPENT_BUILD_JOBS} install
 popd
 
 clean_external "ldc"
 echo "Building LDC pure"
 pushd "${LDC_NATIVE_DIR}"
-cmake -GNinja "${LDC_ROOT_DIR}" \
+cmake -G "Unix Makefiles" "${LDC_ROOT_DIR}" \
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=BOTH \
-    -DD_COMPILER="${LDC_BOOTSTRAP_DIR}/install/bin/ldc2" \
+    -DD_COMPILER="${LDC_BOOTSTRAP_DIR}/install/bin/ldmd2" \
+    -D_COMPILER_ID="ldc2" \
     -DCMAKE_INSTALL_PREFIX="${SERPENT_DEPLOY_DIR}" \
     -DLDC_DYNAMIC_COMPILE=ON \
     -DLDC_WITH_LLD=OFF
 
-ninja -j${SERPENT_BUILD_JOBS}
-ninja -j${SERPENT_BUILD_JOBS} install
+make -j${SERPENT_BUILD_JOBS}
+make -j${SERPENT_BUILD_JOBS} install
 popd
