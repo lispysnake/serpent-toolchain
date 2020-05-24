@@ -18,3 +18,4 @@ Requirements
  - bash
  - Linux host
  - Patience
+ - ccache
