@@ -10,3 +10,15 @@ export SERPENT_ROOT_DIR="${TOP_DIR}"
 unset SCRIPT_PATH
 unset TOP_DIR
 
+# Purge and restage the external directory
+function clean_external()
+{
+    local externDir="${SERPENT_ROOT_DIR}/external/${1}"
+    if [[ ! -d "${externDir}" ]]; then
+        echo "${externDir}: Missing."
+        exit 1
+    fi
+    rm -rf "${externDir}"
+    echo "Restaging external/${1}"
+    git -C "${SERPENT_ROOT_DIR}" submodule update --init --recursive "external/${1}"
+}
