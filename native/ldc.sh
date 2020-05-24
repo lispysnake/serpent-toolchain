@@ -6,7 +6,7 @@ set -e
 # Set up environment to build LDC
 LDC_ROOT_DIR="${SERPENT_ROOT_DIR}/external/ldc"
 LDC_BOOTSTRAP_DIR="${SERPENT_BUILD_DIR}/ldc-bootstrap"
-LDC_NATIVE_DIR="${SERPENT_BUILD_DIR}/ldc-bootstrap"
+LDC_NATIVE_DIR="${SERPENT_BUILD_DIR}/ldc-native"
 
 # Stage the root build directory
 rm -rf "${LDC_NATIVE_DIR}"
