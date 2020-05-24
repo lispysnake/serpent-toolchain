@@ -1,0 +1,3 @@
+[submodule "external/ldc"]
+	path = external/ldc
+	url = https://github.com/ldc-developers/ldc.git
