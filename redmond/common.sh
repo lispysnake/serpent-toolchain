@@ -8,6 +8,7 @@ export HOME="${SERPENT_BUILD_DIR}"
 export SERPENT_ROOT_DIR="${TOP_DIR}"
 export SERPENT_BUILD_JOBS=$(nproc)
 export SERPENT_DEPLOY_DIR="${TOP_DIR}/deploy_redmond"
+export SERPENT_STAGING_DIR="${TOP_DIR}/staging_redmond"
 export SERPENT_DOWNLOAD_DIR="${TOP_DIR}/downloads"
 
 unset SCRIPT_PATH
@@ -49,9 +50,9 @@ function extract_tarball()
     local tarball=$(basename "${url}")
     local stageBall="${SERPENT_DOWNLOAD_DIR}/${tarball}"
 
-    local tgtDir="${SERPENT_BUILD_DIR}/${1}"
+    local tgtDir="${SERPENT_STAGING_DIR}/${1}"
     echo "Extracting ${1}"
-    rm -rf "${SERPENT_BUILD_DIR}/{$1}"
-    install -D -d -m 00755 "${SERPENT_BUILD_DIR}/${1}"
+    rm -rf "${SERPENT_STAGING_DIR}/{$1}"
+    install -D -d -m 00755 "${SERPENT_STAGING_DIR}/${1}"
     tar xf "${stageBall}" --strip-components=1 -C  "${tgtDir}"
 }
