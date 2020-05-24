@@ -17,6 +17,11 @@ unset TOP_DIR
 export CC="gcc"
 export CXX="g++"
 
+# Merge path for already deployed bits
+if [[ -e "${SERPENT_DEPLOY_DIR}/bin" ]]; then
+    export PATH="${SERPENT_DEPLOY_DIR}/bin:${PATH}"
+fi
+
 function fetch_tarball()
 {
     local pkgFile="${SERPENT_ROOT_DIR}/external/${1}"
@@ -31,7 +36,7 @@ function fetch_tarball()
 
     if [[ ! -e "${tarballTarget}" ]]; then
         echo "Downloading: ${tarball}"
-        curl --output "${tarballTarget}" "${url}"
+        curl -L --output "${tarballTarget}" "${url}"
     fi
 
     echo "Computing SHA256SUM: ${tarball}"
