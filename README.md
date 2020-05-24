@@ -8,3 +8,13 @@ to various build targets.
 
 In order to ensure all Serpent developers are on the same level of support,
 we target explicit LDC/Dlang/etc versions.
+
+Requirements
+
+ - ld.gold (binutils-gold)
+ - Working host toolchain (gcc/g++)
+ - Working build tools (cmake/autotools)
+ - Working host ldc (> 0.17)
+ - bash
+ - Linux host
+ - Patience
