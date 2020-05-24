@@ -37,7 +37,7 @@ cmake -G "Unix Makefiles" "${LDC_ROOT_DIR}" \
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=BOTH \
     -DD_COMPILER="${LDC_BOOTSTRAP_DIR}/install/bin/ldmd2" \
-    -D_COMPILER_ID="ldc2" \
+    -DD_COMPILER_ID="ldc2" \
     -DCMAKE_INSTALL_PREFIX="${SERPENT_DEPLOY_DIR}" \
     -DLDC_DYNAMIC_COMPILE=ON \
     -DLDC_WITH_LLD=OFF
