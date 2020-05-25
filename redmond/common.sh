@@ -53,7 +53,7 @@ function extract_tarball()
 
     local tgtDir="${SERPENT_STAGING_DIR}/${1}"
     echo "Extracting ${1}"
-    rm -rf "${SERPENT_STAGING_DIR}/{$1}"
+    rm -rf "${SERPENT_STAGING_DIR}/${1}"
     install -D -d -m 00755 "${SERPENT_STAGING_DIR}/${1}"
     tar xf "${stageBall}" --strip-components=1 -C  "${tgtDir}"
 }
