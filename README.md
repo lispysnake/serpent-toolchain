@@ -34,3 +34,8 @@ instead requiring serpent-toolchain is present to **build** serpent applications
 knowing that all required libraries and such are present.
 
 macOS may come later.
+
+TODO:
+
+ - Fix flags to optimise toolchain to maximum possible
+ - Ensure fPIC, etc, for relocatable builds
