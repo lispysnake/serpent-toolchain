@@ -24,5 +24,3 @@ make -j${SERPENT_BUILD_JOBS}
 
 echo "Installing mingw-w64-headers"
 make -j${SERPENT_BUILD_JOBS} DESTDIR="${SERPENT_DEPLOY_DIR}" install
-ln -sv "x86_64-w64-mingw32" "${SERPENT_DEPLOY_DIR}/mingw"
-ln -sv "lib" "${SERPENT_DEPLOY_DIR}/x86_64-w64-mingw32/lib64"
