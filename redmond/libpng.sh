@@ -17,12 +17,16 @@ clean_external "libpng"
 echo "Building libpng"
 
 pushd "${LIBPNG_BUILD_DIR}"
+
 "${LIBPNG_ROOT_DIR}/configure" \
-    --prefix=/ \
-    --with-sysroot="${SERPENT_DEPLOY_DIR}" \
+    --prefix="${SERPENT_DEPLOY_DIR}" \
+    --exec-prefix="${SERPENT_DEPLOY_DIR}" \
     --host=x86_64-w64-mingw32 \
     --enable-shared \
     --enable-static \
+    --libdir="${SERPENT_DEPLOY_DIR}/lib" \
+    --includedir="${SERPENT_DEPLOY_DIR}/include" \
+    --bindir="${SERPENT_DEPLOY_DIR}/bin"
 
 make -j${SERPENT_BUILD_JOBS}
-make -j${SERPENT_BUILD_JOBS} install DESTDIR="${SERPENT_DEPLOY_DIR}"
+make -j${SERPENT_BUILD_JOBS} install

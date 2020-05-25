@@ -15,4 +15,4 @@ pushd "${ZLIB_ROOT_DIR}"
 # TODO Consider NOT relying on AVX-specific build.
 export CFLAGS="${CFLAGS} -msse4.1 -mavx2 -march=x86-64 -mtune=generic"
 make PREFIX="x86_64-w64-mingw32-" -j${SERPENT_BUILD_JOBS} -f "win32/Makefile.gcc" SHARED_MODE=1 CFLAGS="${CFLAGS}"
-make PREFIX="x86_64-w64-mingw32-" -j${SERPENT_BUILD_JOBS} -f "win32/Makefile.gcc" SHARED_MODE=1 CFLAGS="${CFLAGS}" install DESTDIR="${SERPENT_DEPLOY_DIR}/" LIBRARY_PATH="lib"  INCLUDE_PATH="include" BINARY_PATH="bin"
+make PREFIX="x86_64-w64-mingw32-" -j${SERPENT_BUILD_JOBS} -f "win32/Makefile.gcc" SHARED_MODE=1 CFLAGS="${CFLAGS}" install LIBRARY_PATH="${SERPENT_DEPLOY_DIR}/lib"  INCLUDE_PATH="${SERPENT_DEPLOY_DIR}/include" BINARY_PATH="${SERPENT_DEPLOY_DIR}/bin"

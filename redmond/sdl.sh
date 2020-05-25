@@ -16,9 +16,11 @@ clean_external "SDL"
 echo "Building SDL"
 pushd "${SDL_BUILD_DIR}"
 "${SDL_ROOT_DIR}/configure" \
-    --prefix=/ \
-    --with-sysroot="${SERPENT_DEPLOY_DIR}" \
+    --prefix="${SERPENT_DEPLOY_DIR}" \
+    --libdir="${SERPENT_DEPLOY_DIR}/lib" \
+    --includedir="${SERPENT_DEPLOY_DIR}/include" \
+    --bindir="${SERPENT_DEPLOY_DIR}/bin" \
     --host=x86_64-w64-mingw32
 
 make -j${SERPENT_BUILD_JOBS}
-make -j${SERPENT_BUILD_JOBS} install DESTDIR="${SERPENT_DEPLOY_DIR}"
+make -j${SERPENT_BUILD_JOBS} install

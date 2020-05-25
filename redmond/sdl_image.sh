@@ -20,8 +20,7 @@ popd
 
 pushd "${SDL_IMAGE_BUILD_DIR}"
 "${SDL_IMAGE_ROOT_DIR}/configure" \
-    --prefix=/ \
-    --with-sysroot="${SERPENT_DEPLOY_DIR}" \
+    --prefix="${SERPENT_DEPLOY_DIR}" \
     --host=x86_64-w64-mingw32 \
     --with-sdl-prefix="${SERPENT_DEPLOY_DIR}" \
     --enable-shared \
@@ -29,4 +28,4 @@ pushd "${SDL_IMAGE_BUILD_DIR}"
     --disable-sdltest
 
 make -j${SERPENT_BUILD_JOBS}
-# make -j${SERPENT_BUILD_JOBS} install DESTDIR="${SERPENT_DEPLOY_DIR}"
+make -j${SERPENT_BUILD_JOBS} install
