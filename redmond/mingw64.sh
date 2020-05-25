@@ -23,7 +23,9 @@ zsh "${MINGW64_ROOT_DIR}/configure" \
     --enable-lib32 \
     --enable-lib64  \
     --with-libraries=all \
-    --with-tools=all
+    --with-tools=all \
+    --enable-shared \
+    --enable-static
 
 make -j${SERPENT_BUILD_JOBS}
 
