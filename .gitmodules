@@ -4,3 +4,6 @@
 [submodule "external/dub"]
 	path = external/dub
 	url = https://github.com/dlang/dub.git
+[submodule "external/SDL"]
+	path = external/SDL
+	url = https://github.com/SDL-mirror/SDL.git
