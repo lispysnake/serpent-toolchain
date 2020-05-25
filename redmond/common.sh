@@ -18,6 +18,20 @@ if [[ -e "${SERPENT_DEPLOY_DIR}/bin" ]]; then
     export PATH="${SERPENT_DEPLOY_DIR}/bin:${PATH}"
 fi
 
+
+# Purge and restage the external directory
+function clean_external()
+{
+    local externDir="${SERPENT_ROOT_DIR}/external/${1}"
+    if [[ ! -d "${externDir}" ]]; then
+        echo "${externDir}: Missing."
+        exit 1
+    fi
+    rm -rf "${externDir}"
+    echo "Restaging external/${1}"
+    git -C "${SERPENT_ROOT_DIR}" submodule update --init --recursive "external/${1}"
+}
+
 function fetch_tarball()
 {
     local pkgFile="${SERPENT_ROOT_DIR}/external/${1}"
