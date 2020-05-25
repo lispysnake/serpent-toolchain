@@ -21,6 +21,13 @@ if [[ -e "${SERPENT_DEPLOY_DIR}/bin" ]]; then
     export PATH="${SERPENT_DEPLOY_DIR}/bin:${PATH}"
 fi
 
+# Sort out pkg-config
+if [[ -e "${SERPENT_DEPLOY_DIR}/lib/pkgconfig" ]]; then
+    export "PKG_CONFIG_PATH=${SERPENT_DEPLOY_DIR}/lib/pkgconfig:$PKG_CONFIG_PATH"
+fi
+if [[ -e "${SERPENT_DEPLOY_DIR}/share/pkgconfig" ]]; then
+    export "PKG_CONFIG_PATH=${SERPENT_DEPLOY_DIR}/share/pkgconfig:$PKG_CONFIG_PATH"
+fi
 
 # Purge and restage the external directory
 function clean_external()
