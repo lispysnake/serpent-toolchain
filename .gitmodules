@@ -19,3 +19,6 @@
 [submodule "external/pkgconf"]
 	path = external/pkgconf
 	url = https://github.com/pkgconf/pkgconf.git
+[submodule "external/SDL_mixer"]
+	path = external/SDL_mixer
+	url = https://github.com/SDL-mirror/SDL_mixer.git
