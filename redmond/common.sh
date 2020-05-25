@@ -10,6 +10,9 @@ export SERPENT_DEPLOY_DIR="${TOP_DIR}/deploy_redmond"
 export SERPENT_STAGING_DIR="${TOP_DIR}/staging_redmond"
 export SERPENT_DOWNLOAD_DIR="${TOP_DIR}/downloads"
 
+# Needed for SDL_image janky configure.in
+export BUILD_PREFIX="${SERPENT_DEPLOY_DIR}"
+
 unset SCRIPT_PATH
 unset TOP_DIR
 
