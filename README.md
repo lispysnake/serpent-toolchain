@@ -39,3 +39,4 @@ TODO:
 
  - Fix flags to optimise toolchain to maximum possible
  - Ensure fPIC, etc, for relocatable builds
+ - Integrate CVE checking / patching
