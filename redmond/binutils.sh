@@ -20,7 +20,8 @@ echo "Building binutils"
     --with-sysroot="${SERPENT_DEPLOY_DIR}" \
     --target=x86_64-w64-mingw32 \
     --enable-targets=x86_64-w64-mingw32,i686-w64-mingw32 \
-    --disable-nls
+    --disable-nls \
+    --with-system-zlib
 
 make -j${SERPENT_BUILD_JOBS}
 
