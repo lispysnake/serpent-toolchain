@@ -42,4 +42,4 @@ ln -s "${SERPENT_STAGING_DIR}/gmp" .
 make -j${SERPENT_BUILD_JOBS}
 
 echo "Installing gcc-stage2"
-make -j${SERPENT_BUILD_JOBS} DESTDIR="${SERPENT_DEPLOY_DIR}"
+make -j${SERPENT_BUILD_JOBS} DESTDIR="${SERPENT_DEPLOY_DIR}" install
