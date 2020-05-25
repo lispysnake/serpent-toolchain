@@ -16,6 +16,23 @@ export BUILD_PREFIX="${SERPENT_DEPLOY_DIR}"
 unset SCRIPT_PATH
 unset TOP_DIR
 
+if [[ ! -e "${SERPENT_DEPLOY_DIR}" ]]; then
+    echo "Preparing deployment stage"
+    install -D -d -m 00755 "${SERPENT_DEPLOY_DIR}"
+    install -D -d -m 00755 "${SERPENT_DEPLOY_DIR}/lib32"
+    install -D -d -m 00755 "${SERPENT_DEPLOY_DIR}/lib64"
+    install -D -d -m 00755 "${SERPENT_DEPLOY_DIR}/x86_64-w64-mingw32/include"
+    install -D -d -m 00755 "${SERPENT_DEPLOY_DIR}/x86_64-w64-mingw32/lib32"
+    install -D -d -m 00755 "${SERPENT_DEPLOY_DIR}/x86_64-w64-mingw32/lib64"
+
+    ln -sv x86_64-w64-mingw32 "${SERPENT_DEPLOY_DIR}/mingw"
+    ln -sv x86_64-w64-mingw32/include "${SERPENT_DEPLOY_DIR}/include"
+    ln -sv lib64 "${SERPENT_DEPLOY_DIR}/lib"
+    ln -sv lib64 "${SERPENT_DEPLOY_DIR}/x86_64-w64-mingw32/lib"
+fi
+
+exit 0
+
 # Merge path for already deployed bits
 if [[ -e "${SERPENT_DEPLOY_DIR}/bin" ]]; then
     export PATH="${SERPENT_DEPLOY_DIR}/bin:${PATH}"
