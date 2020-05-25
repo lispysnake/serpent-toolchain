@@ -19,3 +19,18 @@ Requirements
  - Linux host
  - Patience
  - ccache
+
+Eventual goals:
+
+Automate the build and cross-compiler steps to produce a full SDK toolchain
+located at `/opt/serpent/toolchain` which can either be packaged up or provided
+in a flatpak or similar.
+
+We must provide at least the native option, plus cross-compilation for Windows
+and Android.
+
+We'll also merge much of serpent-support into this repository and kill serpent-support,
+instead requiring serpent-toolchain is present to **build** serpent applications,
+knowing that all required libraries and such are present.
+
+macOS may come later.
