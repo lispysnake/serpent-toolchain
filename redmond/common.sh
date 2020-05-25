@@ -31,8 +31,6 @@ if [[ ! -e "${SERPENT_DEPLOY_DIR}" ]]; then
     ln -sv lib64 "${SERPENT_DEPLOY_DIR}/x86_64-w64-mingw32/lib"
 fi
 
-exit 0
-
 # Merge path for already deployed bits
 if [[ -e "${SERPENT_DEPLOY_DIR}/bin" ]]; then
     export PATH="${SERPENT_DEPLOY_DIR}/bin:${PATH}"
