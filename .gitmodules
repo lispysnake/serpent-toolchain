@@ -16,3 +16,6 @@
 [submodule "external/libpng"]
 	path = external/libpng
 	url = https://github.com/glennrp/libpng.git
+[submodule "external/pkgconf"]
+	path = external/pkgconf
+	url = https://github.com/pkgconf/pkgconf.git
