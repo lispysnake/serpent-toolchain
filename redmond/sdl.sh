@@ -5,7 +5,7 @@ set -e
 
 # Set up environment to build SDL
 SDL_ROOT_DIR="${SERPENT_ROOT_DIR}/external/SDL"
-SDL_BUILD_DIR="${SERPENT_BUILD_DIR}/ldc-native"
+SDL_BUILD_DIR="${SERPENT_BUILD_DIR}/SDL"
 
 # Stage the root build directory
 rm -rf "${SDL_BUILD_DIR}"
