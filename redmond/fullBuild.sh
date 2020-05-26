@@ -20,3 +20,4 @@ $(dirname $(realpath -s $0))/libpng.sh
 echo "Preparing SDL"
 $(dirname $(realpath -s $0))/sdl.sh
 $(dirname $(realpath -s $0))/sdl_image.sh
+$(dirname $(realpath -s $0))/sdl_mixer.sh
